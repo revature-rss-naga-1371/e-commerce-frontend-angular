@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+
+<div class="d-flex align-items-center justify-content-center">
+    <h3>
+        To update an existing item enter the existing item's name and then only fill in the form for sections you would like to update.
+    </h3>
+    
+</div>
+
+<div class="display" >
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="card">
+            <div class="card-header">Update Item</div>
+            <div class="card-body">                
+                <form [formGroup]="updateItemForm" (submit)="submitItemUpdate()" class="col-12">                                                            
+                    <div>
+                        <label class="form-label">Enter Current Item Name to be updated:  </label>
+                        <!-- <input type="currentName" formControlName="name" class="form-control"/> -->
+                        <input list="items" formControlName="searchItemName"/>
+                        <datalist id="items">
+                            <option *ngFor="let product of allProducts; let i = index;">
+                                {{product.name}} Item ID: {{i}}
+                            </option>
+                        </datalist>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Item ID:</label>
+                        <input readonly formControlName="id" class="form-control"/>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Update Item Name:</label>
+                        <input formControlName="name" class="form-control"/>
+                    </div>
+                    <div>
+                        <label class="form-label">Update Item Description:</label>
+                        <input  formControlName="description" class="form-control"/>
+                    </div>
+                    <div>
+                        <label class="form-label">Update Item Price</label>
+                        <input formControlName="price" class="form-control"/>
+                    </div>
+                    <div>
+                        <label class="form-label">Update Item Quantity:</label>
+                        <input formControlName="quantity" class="form-control"/>
+                    </div>
+                    <div>
+                        <label class="form-label">Update Image URL:</label>
+                        <input formControlName="image" class="form-control"/>
+                    </div>
+                    
+                    <button id="createitem" class="btn btn-primary">Submit Item Updates</button>
+                <br/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

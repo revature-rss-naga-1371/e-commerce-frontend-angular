@@ -6,6 +6,7 @@ import { CreateItemComponent } from './components/create-item/create-item.compon
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UpdateItemComponent } from './components/update-item/update-item.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: "cart", component: CartComponent },
   { path: "checkout", component: CheckoutComponent },
   { path: "reset_password", component: ResetPasswordComponent },
-  { path: "create_item", component: CreateItemComponent}
+  { path: "create_item", component: CreateItemComponent},
+  { path: "update_item", component: UpdateItemComponent}
 ];
 
 @NgModule({

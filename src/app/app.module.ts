@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { CreateItemComponent } from './components/create-item/create-item.component';
+import { UpdateItemComponent } from './components/update-item/update-item.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CreateItemComponent } from './components/create-item/create-item.compon
     CheckoutComponent,
     DisplayProductsComponent,
     ResetPasswordComponent,
-    CreateItemComponent
+    CreateItemComponent,
+    UpdateItemComponent
   ],
   imports: [
     BrowserModule,

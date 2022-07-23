@@ -6,14 +6,20 @@ import { Injectable } from '@angular/core';
 })
 export class CreateItemService {
 
-  apiUrl: string ="http://localhost:8080/create-item"
+  apiUrl: string ="http://localhost:8080/"
 
   constructor(
     private httpClient: HttpClient
   ) {}
 
   newItem(itemInfo: any){
-    return this.httpClient.patch(`${this.apiUrl}`, itemInfo)
+    return this.httpClient.patch(`${this.apiUrl}create-item`, itemInfo)
   }
+
+  updateItem(itemInfo: any){
+    return this.httpClient.patch(`${this.apiUrl}update-item`, itemInfo)
+  }
+
+  
 
 }

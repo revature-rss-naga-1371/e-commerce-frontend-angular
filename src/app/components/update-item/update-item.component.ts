@@ -37,25 +37,11 @@ export class UpdateItemComponent implements OnInit {
       name : ['', Validators.required],
       description   : [],
       image  : ['', Validators.required],
-      price : ['', [Validators.required, Validators.pattern(/^\d*(\.\d{2})/)]],
+      price : ['', [Validators.required, Validators.pattern(/^\d*(\.\d{2})$/)]],
       quantity : ['', [Validators.required, Validators.min(0)]]
   })
 
-  // this.updateItemForm.controls['currentName']
-  //   .valueChanges
-  //   .subscribe({
-  //     next: name =>{
-  //       this.updateItemForm.patchValue({
-  //         id: id,
-  //         name : name,
-  //         description   : description,
-  //         image  : [],
-  //         price : [],
-  //         quantity : []
-  //       })
-  //     }
-  //   })
-
+  
   this.updateItemForm.controls['searchItemName']
   .valueChanges
   .subscribe({
@@ -64,14 +50,17 @@ export class UpdateItemComponent implements OnInit {
       console.log(strs)
       this.updateItemForm.patchValue({
         name: strs[0],
-        id: this.allProducts[strs[1]].id
+        id: this.allProducts[strs[1]].id,
+        description: this.allProducts[strs[1]].description,
+        image: this.allProducts[strs[1]].image,
+        price: this.allProducts[strs[1]].price.toFixed(2),
+        quantity: this.allProducts[strs[1]].quantity,
     })
       console.log(strs)
     }
   })
 
-  // this.updateItem.patchValue({name: 'headphones'})
-
+  
 
   }
 

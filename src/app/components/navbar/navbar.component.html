@@ -1,3 +1,23 @@
+<!-- <div [ngStyle]="{'background-color': isDark ? 'red' : 'black'}">
+    <nav id="n1" class=""> {{isDark}}
+        <h4>
+            <img src="../../../assets/images/favicon.png" width="8%" height="8%" alt="Revature" [routerLink]="['/home']">
+            Revature Swag Shop
+        </h4>
+        <form class="form-inline">
+            <button class="btn btn-light" [routerLink]="['/cart']">
+                Cart
+                <span class="badge badge-info">{{cartCount}}</span>
+            </button>
+            <button (click)="changeTheme()">Turn Dark!</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
+            <button id="pwreset" class="btn btn-outline-danger my-2 my-sm-0" (click)="resetPassword()">Reset PW</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0 item" (click)="createItem()">Create Item</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0 item" (click)="updateItem()">Update Item</button>
+    
+        </form>
+    </nav>
+</div> -->
 <nav id="n1" class="navbar navbar-light bg-light">
     <h4>
         <img src="../../../assets/images/favicon.png" width="8%" height="8%" alt="Revature" [routerLink]="['/home']">
@@ -9,9 +29,9 @@
             <span class="badge badge-info">{{cartCount}}</span>
         </button>
         <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
-        <button id="pwreset" class="btn btn-outline-danger my-2 my-sm-0" [routerLink]="['/reset_password']">Reset PW</button>
-        <button class="btn btn-outline-danger my-2 my-sm-0 item" [routerLink]="['/create_item']">Create Item</button>
-        <button class="btn btn-outline-danger my-2 my-sm-0 item" [routerLink]="['/update_item']">Update Item</button>
+        <button id="pwreset" class="btn btn-outline-danger my-2 my-sm-0" (click)="resetPassword()">Reset PW</button>
+        <button class="btn btn-outline-danger my-2 my-sm-0 item" (click)="createItem()">Create Item</button>
+        <button class="btn btn-outline-danger my-2 my-sm-0 item" (click)="updateItem()">Update Item</button>
 
     </form>
 </nav>

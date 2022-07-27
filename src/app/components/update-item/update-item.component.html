@@ -31,7 +31,8 @@
 
                     <div>
                         <label class="form-label">Update Item Name:</label>
-                        <input formControlName="name" class="form-control"/>
+                        <input formControlName="name" class="form-control" [ngClass]="{'is-invalid':updateItemForm.controls['name'].touched && updateItemForm.controls['name'].errors?.required}"/>
+                        <div *ngIf="updateItemForm.controls['name'].errors?.required && updateItemForm.controls['name'].touched" class="text-danger">Name Is Required</div>
                     </div>
                     <div>
                         <label class="form-label">Update Item Description:</label>
@@ -39,18 +40,23 @@
                     </div>
                     <div>
                         <label class="form-label">Update Item Price</label>
-                        <input formControlName="price" class="form-control"/>
+                        <input formControlName="price" class="form-control" [ngClass]="{'is-invalid':updateItemForm.controls['price'].touched && updateItemForm.controls['price'].errors?.required}"/>
+                        <div *ngIf="updateItemForm.controls['price'].errors?.required && updateItemForm.controls['price'].touched" class="text-danger">Price Is Required</div>
+                        <div *ngIf="updateItemForm.controls['price'].touched && updateItemForm.controls['price'].errors?.pattern" class="text-danger">Price Must be in Valid Form (ex. 4.99)</div>
                     </div>
                     <div>
                         <label class="form-label">Update Item Quantity:</label>
-                        <input formControlName="quantity" class="form-control"/>
+                        <input formControlName="quantity" class="form-control" [ngClass]="{'is-invalid':updateItemForm.controls['quantity'].touched && (updateItemForm.controls['quantity'].errors?.required || updateItemForm.controls['quantity'].errors?.min)}"/>
+                        <div *ngIf="updateItemForm.controls['quantity'].errors?.required && updateItemForm.controls['quantity'].touched" class="text-danger">Quantity Is Required</div>
+                        <div *ngIf="updateItemForm.controls['quantity'].errors?.min && updateItemForm.controls['quantity'].touched" class="text-danger">Quantity Must Be At Least 0</div>
                     </div>
                     <div>
                         <label class="form-label">Update Image URL:</label>
-                        <input formControlName="image" class="form-control"/>
+                        <input formControlName="image" class="form-control" [ngClass]="{'is-invalid':updateItemForm.controls['image'].touched && updateItemForm.controls['image'].errors?.required}"/>
+                        <div *ngIf="updateItemForm.controls['image'].errors?.required && updateItemForm.controls['image'].touched" class="text-danger">Image URL Is Required</div>
                     </div>
                     
-                    <button id="createitem" class="btn btn-primary">Submit Item Updates</button>
+                    <button id="createitem" [disabled]="updateItemForm.invalid" class="btn btn-primary">Submit Item Updates</button>
                 <br/>
                 </form>
             </div>

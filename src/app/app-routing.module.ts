@@ -5,6 +5,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CreateItemComponent } from './components/create-item/create-item.component';
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UpdateItemComponent } from './components/update-item/update-item.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: "checkout", component: CheckoutComponent },
   { path: "reset_password", component: ResetPasswordComponent },
   { path: "create_item", component: CreateItemComponent},
-  { path: "update_item", component: UpdateItemComponent}
+  { path: "update_item", component: UpdateItemComponent},
+  { path: "product_details/:id", component: ProductDetailsComponent}
 ];
 
 @NgModule({

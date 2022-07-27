@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { CreateItemComponent } from './components/create-item/create-item.component';
 import { UpdateItemComponent } from './components/update-item/update-item.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UpdateItemComponent } from './components/update-item/update-item.compon
     DisplayProductsComponent,
     ResetPasswordComponent,
     CreateItemComponent,
-    UpdateItemComponent
+    UpdateItemComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

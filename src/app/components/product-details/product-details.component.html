@@ -1,0 +1,9 @@
+<p>product-details works!</p>
+{{product | json}}
+<div class="card" style="width: 24rem;">
+    <img class="card-img-top" src="{{product[0].image}}">
+    <div class="card-body">
+        <h5 class="card-title">{{product[0].name}}</h5>
+        <p class="card-text">{{product[0].description}}</p>
+    </div>
+</div>

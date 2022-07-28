@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CreateItemService } from 'src/app/services/create-item.service';
+import { Validators } from '@angular/forms';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-create-item',
@@ -19,13 +21,15 @@ export class CreateItemComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  pricePattern = "^\d*(\.\d{2})"
+
   ngOnInit(): void {
     this.createItem = this.fb.group({
       description   : [],
-      image  : [],
-      name   : [],
-      price : [],
-      quantity : []
+      image  : ['', Validators.required],
+      name   : ['', Validators.required],
+      price : ['', [Validators.required, Validators.pattern(/^\d*(\.\d{2})/)]],
+      quantity : ['', [Validators.required, Validators.min(0)]]
   })
   }
 

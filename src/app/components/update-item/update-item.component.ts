@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { CreateItemService } from 'src/app/services/create-item.service';
@@ -31,48 +31,36 @@ export class UpdateItemComponent implements OnInit {
     );
 
     
-
-
     this.updateItemForm = this.fb.group({
       searchItemName: [''],
       id: [],
-      name : [],
+      name : ['', Validators.required],
       description   : [],
-      image  : [],
-      price : [],
-      quantity : []
+      image  : ['', Validators.required],
+      price : ['', [Validators.required, Validators.pattern(/^\d*(\.\d{2})$/)]],
+      quantity : ['', [Validators.required, Validators.min(0)]]
   })
 
-  // this.updateItemForm.controls['currentName']
-  //   .valueChanges
-  //   .subscribe({
-  //     next: name =>{
-  //       this.updateItemForm.patchValue({
-  //         id: id,
-  //         name : name,
-  //         description   : description,
-  //         image  : [],
-  //         price : [],
-  //         quantity : []
-  //       })
-  //     }
-  //   })
-
+  
   this.updateItemForm.controls['searchItemName']
   .valueChanges
   .subscribe({
     next: name =>{
       var strs=name.split(" Item ID: ")
+      console.log(strs)
       this.updateItemForm.patchValue({
         name: strs[0],
-        id: this.allProducts[1].id
+        id: this.allProducts[strs[1]].id,
+        description: this.allProducts[strs[1]].description,
+        image: this.allProducts[strs[1]].image,
+        price: this.allProducts[strs[1]].price.toFixed(2),
+        quantity: this.allProducts[strs[1]].quantity,
     })
       console.log(strs)
     }
   })
 
-  // this.updateItem.patchValue({name: 'headphones'})
-
+  
 
   }
 

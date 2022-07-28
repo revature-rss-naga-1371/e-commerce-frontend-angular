@@ -1,7 +1,8 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResetPasswordService } from '../reset-password.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -12,22 +13,20 @@ export class ResetPasswordComponent implements OnInit {
 
   editPassword! : FormGroup
 
-
-
-
   constructor(
     private fb: FormBuilder,
     private resetPasswordService: ResetPasswordService,
     private router: Router,
-    private route: ActivatedRoute
     ) {}
 
   ngOnInit(): void {
     this.editPassword = this.fb.group({
-      email   : [],
-      currPW  : [],
-      newPW   : [],
-      reNewPW : []
+      email   : ['', [Validators.required, Validators.email]],
+      currPW  : ['', Validators.required],
+      newPW   : ['', [Validators.required, Validators.minLength(6)]],
+      reNewPW : ['', [Validators.required, Validators.minLength(6)]]
+    }, {
+      validator: this.resetPasswordService.passwordMatchValidator('newPW', 'reNewPW')
     })
   }
 
@@ -43,7 +42,6 @@ export class ResetPasswordComponent implements OnInit {
       })
       this.router.navigate(['home']);
   }
-
 }
 
 }

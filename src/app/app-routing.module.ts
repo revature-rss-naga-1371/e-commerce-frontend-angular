@@ -5,6 +5,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CreateItemComponent } from './components/create-item/create-item.component';
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UpdateItemComponent } from './components/update-item/update-item.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';

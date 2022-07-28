@@ -73,8 +73,11 @@ export class CartComponent implements OnInit {
         else {
           if (this.products[i].quantity !== 0) {
             this.products[i].quantity--;
+            if(this.products[i].quantity==0)
+              this.deleteFromCart(i)
           }
         }
+        
       }
       let count = 0
       this.products.forEach(
@@ -91,7 +94,10 @@ export class CartComponent implements OnInit {
       }
       console.log("new cart is " + cart)
       this.productService.setCart(cart)
+
+      
     }
+
   }
   
 

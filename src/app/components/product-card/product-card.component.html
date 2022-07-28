@@ -14,7 +14,21 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-sm">Quantity in Stock</span>
       </div>
-      <input type="number" class="form-control" aria-label="Sizing example input" [value]="productInfo.quantity" aria-describedby="inputGroup-sizing-sm" disabled>
+      <input type="number" class="form-control" aria-label="Sizing example input" [value]="productInfo.price" aria-describedby="inputGroup-sizing-sm" disabled>
+    </div>
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Quantity in Stock</span>
+        </div>
+        <input type="number" class="form-control" aria-label="Sizing example input" [value]="productInfo.quantity" aria-describedby="inputGroup-sizing-sm" disabled>
+      </div>
+      <router-outlet></router-outlet>
+      <!-- <a routerLink="/product_details" routerLinkActive="active"> -->
+        <a routerLink="/product_details/{{productInfo.id}} " routerLinkActive="active"> 
+        <app-star-rating [productId]="productInfo.id" class="ml-2"></app-star-rating> 
+      </a> 
+    <div class="card-body">
+        <button class="btn btn-outline-success" (click)="addToCart(productInfo)">Add to Cart</button>
     </div>
   <div class="card-body">
       <button class="btn btn-outline-success" (click)="addToCart(productInfo)">Add to Cart</button>
@@ -22,4 +36,3 @@
   <div class="card-body">
     <button class="btn btn-outline-success" class="btn btn-dark" [routerLink]="['/product_details', productInfo.id]" (click)="addToCart(productInfo)">View Product Details</button>
   </div>
-</div>

@@ -16,7 +16,13 @@
         </div>
         <input type="number" class="form-control" aria-label="Sizing example input" [value]="productInfo.quantity" aria-describedby="inputGroup-sizing-sm" disabled>
       </div>
+      <router-outlet></router-outlet>
+      <!-- <a routerLink="/product_details" routerLinkActive="active"> -->
+        <a routerLink="/product_details/{{productInfo.id}} " routerLinkActive="active"> 
+        <app-star-rating [productId]="productInfo.id" class="ml-2"></app-star-rating> 
+      </a> 
     <div class="card-body">
         <button class="btn btn-outline-success" (click)="addToCart(productInfo)">Add to Cart</button>
     </div>
   </div>
+  

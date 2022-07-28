@@ -1,0 +1,84 @@
+<!-- <div class="container" *ngIf="!starRating; else showRating">
+    <span class="fa fa-star text-dark"></span>
+    <span class="fa fa-star text-dark"></span>
+    <span class="fa fa-star text-dark"></span>
+    <span class="fa fa-star text-dark"></span>
+    <span class="fa fa-star text-dark"></span>
+    <span class="text" id="inputGroup-sizing-sm">25</span>
+
+</div>
+
+<ng-template #showRating>
+    <div class="container" *ngFor="let rating of starRating">
+        <span class="fa fa-star checked"></span>
+    
+    
+    </div>
+    <span class="fa fa-star checked"></span>
+
+
+
+</ng-template> -->
+<!-- <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span> -->
+<div class="container" [ngSwitch]="starRating">
+    <div *ngSwitchCase="0"  >
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="ml-2">{{num}}</span>
+    </div>
+    <div *ngSwitchCase="1"  >
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="ml-2">{{num}}</span>
+    </div>
+    <div *ngSwitchCase="2"  >
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="ml-2">{{num}}</span>
+    </div>
+    <div *ngSwitchCase="3"  >
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="ml-2">{{num}}</span>
+    </div>
+    <div *ngSwitchCase="4"  >
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="ml-2">{{num}}</span>
+    </div>
+    <div *ngSwitchCase="5"  >
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="ml-2">{{num}}</span>
+    </div>
+    <div *ngSwitchCaseDefault  >
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="fa fa-star text-dark"></span>
+        <span class="ml-2">{{num}}</span>
+        </div>
+</div>

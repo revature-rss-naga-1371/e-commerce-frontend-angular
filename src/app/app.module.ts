@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { CreateItemComponent } from './components/create-item/create-item.component';
 import { UpdateItemComponent } from './components/update-item/update-item.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { ReviewComponent } from './components/review/review.component';
@@ -33,6 +34,7 @@ import { ReviewComponent } from './components/review/review.component';
     CreateItemComponent,
     UpdateItemComponent,
     ProductDetailsComponent,
+    StarRatingComponent,
     ReviewFormComponent,
     ReviewComponent
   ],

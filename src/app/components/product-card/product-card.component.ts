@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -18,10 +20,13 @@ export class ProductCardComponent implements OnInit{
   }[] = [];
   subscription!: Subscription;
   totalPrice: number = 0;
-
+  selectedId!: number;
   @Input() productInfo!: Product;
-
-  constructor(private productService: ProductService) { }
+  product$! : Observable<Product[]>;
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute
+    ) { }
   
   ngOnInit(): void {
     this.subscription = this.productService.getCart().subscribe(
@@ -31,6 +36,11 @@ export class ProductCardComponent implements OnInit{
         this.totalPrice = cart.totalPrice;
       }
     );
+    this.product$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        this.selectedId = Number(params.get('id'));
+        return this.productService.getProducts();
+    }));
   }
 
   addToCart(product: Product): void {

@@ -16,6 +16,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { CreateItemComponent } from './components/create-item/create-item.component';
 import { UpdateItemComponent } from './components/update-item/update-item.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ReviewFormComponent } from './components/review-form/review-form.component';
+import { ReviewComponent } from './components/review/review.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ResetPasswordComponent,
     CreateItemComponent,
     UpdateItemComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ReviewFormComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,

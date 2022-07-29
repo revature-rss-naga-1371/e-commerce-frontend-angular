@@ -1,9 +1,26 @@
-<p>product-details works!</p>
-{{product | json}}
-<div class="card" style="width: 24rem;">
-    <img class="card-img-top" src="{{product[0].image}}">
-    <div class="card-body">
-        <h5 class="card-title">{{product[0].name}}</h5>
-        <p class="card-text">{{product[0].description}}</p>
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img class="img-fluid float-start rounded" src="{{product[0].image}}">
+        </div>
+        <div class="col-6">
+            <h3 class="display-4">{{product[0].name}}</h3>
+            <span class="text-warning">&#97733; &#97733; &#97733; &#97733; &#97734;</span>
+            4.0 stars
+            <br>
+            <p class="text-end">{{product[0].description}}</p>
+            <p class="text-end">{{product[0].price | currency}}</p>
+            <button class="btn btn-outline-success">Add to Cart </button> 
+            <!-- (click)="addToCart(product[0]) -->
+            
+        </div>
+       
     </div>
+
 </div>
+
+<br>
+    
+
+<app-review></app-review>

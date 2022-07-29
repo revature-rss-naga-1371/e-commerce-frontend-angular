@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
+
 
 @Component({
   selector: 'app-product-details',
@@ -8,8 +10,13 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
+  
 
   product: Array<any> = []
+  cartProducts: any;
+  totalPrice!: number;
+  isEmpty= true
+ 
 
   constructor(
     private route: ActivatedRoute,
@@ -31,5 +38,10 @@ export class ProductDetailsComponent implements OnInit {
     })
     console.log(this.product)
   }
+  // addToCart(product: Product) {
+  // this.productService.()
+  // window.alert('Your product has been added to the cart!');
+  // }
+  
 
 }

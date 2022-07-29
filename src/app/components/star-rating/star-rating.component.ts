@@ -19,7 +19,6 @@ export class StarRatingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      console.log(this.productId)
       this.review.getReviews(this.productId).subscribe(
         (subreview) => {
           if(subreview.length > 0) {

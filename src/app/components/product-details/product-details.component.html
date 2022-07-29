@@ -13,9 +13,7 @@
             <br>
             <p class="text-end">{{product[0].description}}</p>
             <p class="text-end">{{product[0].price | currency}}</p>
-            <button class="btn btn-outline-success">Add to Cart </button> 
-            <!-- (click)="addToCart(product[0]) -->
-            
+            <button class="btn btn-outline-success" (click)="addToCart(Product)">Add to Cart </button> 
         </div>
        
     </div>

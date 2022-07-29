@@ -13,13 +13,10 @@ export class ReviewService {
   constructor(private http: HttpClient) { }
 
   public getReviews(productId: number): Observable<Review[]>{
-    console.log(productId)
     return this.http.get<Review[]>(environment.baseUrl+'/api/review/'+productId, {headers: environment.headers, withCredentials: environment.withCredentials})
     
   }
   public newReview(reviewInfo: any){
-    console.log(reviewInfo)
-    console.log(environment.baseUrl+'/api/review/'+'create-review')
     return this.http.post(environment.baseUrl+'/api/review/'+'create-review', reviewInfo)
     .subscribe(
       (resp) => console.log(resp),

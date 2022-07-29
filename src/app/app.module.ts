@@ -17,6 +17,7 @@ import { CreateItemComponent } from './components/create-item/create-item.compon
 import { UpdateItemComponent } from './components/update-item/update-item.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ReviewPanelComponent } from './components/review-panel/review-panel.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     CreateItemComponent,
     UpdateItemComponent,
     StarRatingComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ReviewPanelComponent
   ],
   imports: [
     BrowserModule,

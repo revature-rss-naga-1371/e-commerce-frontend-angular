@@ -1,9 +1,55 @@
-<div class="card">
+<!-- <div class="card card-outline-secondary my-4">
     <div class="card-header">
-        <h4> Product Reviews</h4>
+        Product Reviews
+    </div>
+    <div class="card-body" *ngFor="let review of reviews">
+       {{review.description}}
+       {{review.name}}
+
+    </div>
+        
+
         <app-review-form></app-review-form>
     
-    </div>
 
+
+</div> -->
+
+<div class="container">
+    <div class="header">
+        <div class="title">Customer Reviews</div>
+        <div class="header-button">
+            <a (click)="toggle()" title="Write a new review">Write a New Review</a>
+        </div>
+    </div>
+    <div>
+        <div class="container shadow-lg p-2">
+            <app-review-form 
+                [productId]="productId"
+                *ngIf="isReviewFormOpen"
+            ></app-review-form>
+        </div>  
+        <div class="container shadow-lg p-2">
+            <div class="card" *ngFor="let review of reviews">
+                <div class="card-body">
+                    <div class="col">
+                        <!-- <p>{{review.timestamp| date:'MM/dd/yyyy hh:mm:ss'}}</p> -->
+                        <div class="pb-3">
+                            <!-- <label>Product: <span class="product">{{product[0].name}}</span></label> -->
+                            <div>
+                                {{review.rating}}
+                            </div>
+                        </div>
+                        <div>
+                            <label>{{review.name}}</label>
+                            <p>{{review.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
 </div>
+
+
 

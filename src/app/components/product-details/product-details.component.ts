@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
+import { ReviewService } from 'src/app/services/review.service';
 
 
 @Component({
@@ -15,15 +16,20 @@ export class ProductDetailsComponent implements OnInit {
   product: Array<any> = []
   cartProducts: any;
   totalPrice!: number;
-  isEmpty= true
+  isEmpty= true;
+  starRating: number = 2;
+  // num: number = 0;
+  @Input() productId!: number;
  
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    
   ) { }
 
   ngOnInit(): void {
+    
     this.loadProduct();
   }
 

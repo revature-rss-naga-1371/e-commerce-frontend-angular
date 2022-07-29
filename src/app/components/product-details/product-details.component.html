@@ -6,8 +6,10 @@
         </div>
         <div class="col-6">
             <h3 class="display-4">{{product[0].name}}</h3>
-            <span class="text-warning">&#97733; &#97733; &#97733; &#97733; &#97734;</span>
-            4.0 stars
+            <!-- <app-star-rating [productId]="product[0].id"></app-star-rating> -->
+            <a routerLink="/product_details/{{product[0].id}} " routerLinkActive="active"> 
+                <app-star-rating [productId]="product[0].id" class="ml-2"></app-star-rating> 
+              </a> 
             <br>
             <p class="text-end">{{product[0].description}}</p>
             <p class="text-end">{{product[0].price | currency}}</p>
@@ -23,4 +25,5 @@
 <br>
     
 
-<app-review></app-review>
+<app-review [productId]="product[0].id"></app-review>
+

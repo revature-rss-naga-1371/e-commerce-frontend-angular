@@ -31,6 +31,12 @@ export class NavbarComponent implements OnInit{
 
   logout() {
     this.authService.logout();
+    let cart = {
+      cartCount: 0,
+      products: [],
+      totalPrice: 0.00
+    };
+    this.productService.setCart(cart);
     this.router.navigate(['login']);
   }
 

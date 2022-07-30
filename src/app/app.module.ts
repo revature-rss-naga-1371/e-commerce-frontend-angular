@@ -19,6 +19,7 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { ReviewComponent } from './components/review/review.component';
+import { ReviewPanelComponent } from './components/review-panel/review-panel.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,8 @@ import { ReviewComponent } from './components/review/review.component';
     StarRatingComponent,
     ReviewFormComponent,
     ReviewComponent
+    ProductDetailsComponent,
+    ReviewPanelComponent
   ],
   imports: [
     BrowserModule,

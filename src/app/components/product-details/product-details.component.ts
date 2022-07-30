@@ -46,7 +46,6 @@ export class ProductDetailsComponent implements OnInit {
     .subscribe({
       next: (response: any) => {
         this.product.push(response)
-        // this.product = response
       }
     })
     this.subscription = this.productService.getCart().subscribe(
@@ -100,7 +99,6 @@ export class ProductDetailsComponent implements OnInit {
         totalPrice: this.totalPrice + product.price
       }
       this.productService.setCart(cart);
-      window.alert("added to cart")
     }
   
 

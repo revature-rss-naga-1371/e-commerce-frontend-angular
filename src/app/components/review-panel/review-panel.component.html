@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-6">
+      <button (click)="toggle()" *ngIf="!isFormOpen" type="button" class="btn btn-dark">+</button>
+      <div *ngIf="isFormOpen" class="card card-body">
+        <form [formGroup]="reviewForm" (submit)="handleSubmit()">
+          <div class="form-group">
+            <label>Rating</label>
+            <select formControlName="rating" class="form-control">
+              <option *ngFor="let n of [1,2,3,4,5]">{{n}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea formControlName="description"  type="text" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Name</label>
+            <input formControlName="name" type="text" class="form-control"/>
+          </div>
+          <br/>
+          <button type="submit" class="btn btn-primary">submit</button>
+          &nbsp;
+          <button (click)="toggle()" type="button" class="btn btn-danger">cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>

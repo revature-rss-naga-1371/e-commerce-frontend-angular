@@ -1,12 +1,25 @@
-<!-- <p>product-details works!</p>
-{{product | json}}
-<div class="card" style="width: 24rem;">
-    <img class="card-img-top" src="{{product[0].image}}">
-    <div class="card-body">
-        <h5 class="card-title">{{product[0].name}}</h5>
-        <p class="card-text">{{product[0].description}}</p>
-    </div>
-</div>
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img class="img-fluid float-start rounded" src="{{product[0].image}}">
+        </div>
+        <div class="col-6">
+            <h3 class="display-4">{{product[0].name}}</h3>
+            <!-- <app-star-rating [productId]="product[0].id"></app-star-rating> -->
+            <a routerLink="/product_details/{{product[0].id}} " routerLinkActive="active"> 
+                <app-star-rating [productId]="product[0].id" class="ml-2"></app-star-rating> 
+              </a> 
+            <br>
+            <p class="text-end">{{product[0].description}}</p>
+            <p class="text-end">{{product[0].price | currency}}</p>
+            <button class="btn btn-outline-success" (click)="addToCart(Product)">Add to Cart </button> 
+        </div>
+
+<br>
+    
+
+<app-review [productId]="product[0].id"></app-review>
 <app-navbar></app-navbar> -->
 <!-- <div class="container-sm ">
     <div class="row align-items-start">
@@ -82,5 +95,4 @@
 
 <hr>
 <app-review-panel [productId]="Product.id"></app-review-panel>
-
 

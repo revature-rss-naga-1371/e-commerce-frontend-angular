@@ -1,0 +1,38 @@
+
+  /* Style the header */
+  .container{
+    padding-top: 10%;
+  }
+   
+  .header {
+      overflow: hidden;
+      background-color: #F26925;
+      padding: 20px 30px;
+      line-height: 30px;
+      color: white;
+    }
+   
+    .header a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 4px;
+      background-color: #474C55;
+    }
+   
+    .header div.title {
+      font-size: 30px;
+      font-weight: bold;
+      float: left;
+     
+    }
+   
+    .header a:hover {
+      background-color: #FFFFFF;
+      color: black;
+    }
+   
+    .header div.header-button{
+      float: right;
+    }
+  

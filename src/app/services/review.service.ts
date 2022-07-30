@@ -15,6 +15,7 @@ export class ReviewService {
 
   public getReviews(productId: number): Observable<Review[]>{
     return this.http.get<Review[]>(environment.baseUrl+'/api/review/'+productId, {headers: environment.headers, withCredentials: environment.withCredentials})
+    
   }
   public newReview(reviewInfo: Review){
     return this.http.post(environment.baseUrl+'/api/review/'+'create-review', reviewInfo, {headers: environment.headers})

@@ -1,0 +1,77 @@
+<!-- <div class="container-fluid">
+    <form [formGroup]="reviewForm" (submit)="handleSubmit()">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-25">
+            <label for="rating">Rating</label>
+          </div>
+          <div class="col-75">
+            <select formControlName="stars" class="form-control">
+              <option *ngFor="let n of [1,2,3,4,5]">{{n}}</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+      
+        
+      
+      <div class="row">
+        <div class="col-25">
+          <label for="written review">Write a review</label>
+        </div>
+        <div class="col-75">
+          <textarea id="written review" name="review" placeholder="What did you like or dislike? What did you use this product for?" style="height: 100px;"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <input type="submit" value="Submit">
+      </div>
+      
+        
+    </form>
+  </div> -->
+
+  <div class="card">
+    <div class="card-title">Create a New Product Review</div>
+    <div class="card-body">
+        <form [formGroup]="reviewForm" (submit)="handleSubmit()">
+            <div class="form-group">
+                <!-- <label>Product: <span class="product">{{productId[0].name}}</span></label> -->
+            </div>
+            <div class="form-group">
+                <label class="rating">Overall Rating</label>
+                <div class="form-check form-check-inline">
+                    <input formControlName="rating" class="form-check-input" type="radio" value="1">
+                    <label class="form-check-label"> 1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input formControlName="rating" class="form-check-input" type="radio" value="2">
+                    <label class="form-check-label"> 2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input formControlName="rating" class="form-check-input" type="radio" value="3">
+                    <label class="form-check-label"> 3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input formControlName="rating" class="form-check-input" type="radio" value="4">
+                    <label class="form-check-label"> 4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input formControlName="rating" class="form-check-input" type="radio" value="5">
+                    <label class="form-check-label"> 5</label>
+                </div>
+            </div>
+            <div class="form-group pb-3">
+                <label>Add a Headline</label>
+                <input formControlName="name" class="form-control" placeholder="What's most important to know?"/>
+            </div>
+            <div class="form-group">
+                <label>Add a Written Review</label>
+                <textarea formControlName="description" class="form-control" rows="8" placeholder="What did you like or dislike?"></textarea>
+            </div>
+            <button type="submit" class="btn submit">Submit</button>
+            <button class="btn cancel">Cancel</button>
+        </form>
+    </div>
+</div>

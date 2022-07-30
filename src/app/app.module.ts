@@ -17,6 +17,8 @@ import { CreateItemComponent } from './components/create-item/create-item.compon
 import { UpdateItemComponent } from './components/update-item/update-item.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ReviewFormComponent } from './components/review-form/review-form.component';
+import { ReviewComponent } from './components/review/review.component';
 import { ReviewPanelComponent } from './components/review-panel/review-panel.component';
 
 @NgModule({
@@ -32,7 +34,10 @@ import { ReviewPanelComponent } from './components/review-panel/review-panel.com
     ResetPasswordComponent,
     CreateItemComponent,
     UpdateItemComponent,
+    ProductDetailsComponent,
     StarRatingComponent,
+    ReviewFormComponent,
+    ReviewComponent
     ProductDetailsComponent,
     ReviewPanelComponent
   ],

@@ -24,6 +24,7 @@
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star"></span> -->
+
 <div class="container" [ngSwitch]="starRating">
     <div *ngSwitchCase="0"  >
         <span class="fa fa-star text-dark"></span>
@@ -34,7 +35,7 @@
         <span class="ml-2">{{num}}</span>
     </div>
     <div *ngSwitchCase="1"  >
-        <span class="fa fa-star"></span>
+        <span class="fa fa-star yellow"></span>
         <span class="fa fa-star text-dark"></span>
         <span class="fa fa-star text-dark"></span>
         <span class="fa fa-star text-dark"></span>
@@ -42,35 +43,35 @@
         <span class="ml-2">{{num}}</span>
     </div>
     <div *ngSwitchCase="2"  >
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+        <span class="fa fa-star yellow"></span>
+        <span class="fa fa-star yellow"></span>
         <span class="fa fa-star text-dark"></span>
         <span class="fa fa-star text-dark"></span>
         <span class="fa fa-star text-dark"></span>
         <span class="ml-2">{{num}}</span>
     </div>
-    <div *ngSwitchCase="3"  >
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+    <div *ngSwitchCase="3"> 
+        <span class="fa fa-star yellow"></span>
+        <span class="fa fa-star yellow"></span>
+        <span class="fa fa-star yellow"></span>
         <span class="fa fa-star text-dark"></span>
         <span class="fa fa-star text-dark"></span>
         <span class="ml-2">{{num}}</span>
     </div>
     <div *ngSwitchCase="4"  >
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+        <span class="fa fa-star yellow"></span>
+        <span class="fa fa-star yellow"></span>
+        <span class="fa fa-star yellow"></span>
+        <span class="fa fa-star yellow"></span>
         <span class="fa fa-star text-dark"></span>
         <span class="ml-2">{{num}}</span>
     </div>
     <div *ngSwitchCase="5"  >
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+        <span class="fa fa-star yellow"></span>
+        <span class="fa fa-star yellow"></span>
+        <span class="fa fa-star yellow"></span>
+        <span class="fa fa-star yellow"></span>
+        <span class="fa fa-star yellow"></span>
         <span class="ml-2">{{num}}</span>
     </div>
     <div *ngSwitchCaseDefault  >

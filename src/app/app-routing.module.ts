@@ -8,7 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UpdateItemComponent } from './components/update-item/update-item.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
+
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },

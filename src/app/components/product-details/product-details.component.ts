@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
+import { ReviewService } from 'src/app/services/review.service';
+
 
 @Component({
   selector: 'app-product-details',
@@ -10,26 +12,31 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-
-  product: Array<any> = []
-  cartCount!: number;
+  
   products: {
     product: Product,
     quantity: number
   }[] = [];
+  cartCount!: number;
+  product: Array<any> = []
+  cartProducts: any;
+  Product! : Product;
+  totalPrice!: number;
+  isEmpty= true;
+  starRating: number = 0
   subscription!: Subscription;
-  totalPrice: number = 0;
-  selectedId!: number;
-    Product! : Product;
-    productId!: number;
-  
+  // num: number = 0;
+  @Input() productId!: number;
+ 
+
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private productService: ProductService
+    private productService: ProductService,
+    
   ) { }
 
   ngOnInit(): void {
+    
     this.loadProduct();
   }
 
@@ -39,10 +46,8 @@ export class ProductDetailsComponent implements OnInit {
     .subscribe({
       next: (response: any) => {
         this.product.push(response)
-        // this.product = response
       }
     })
-    console.log(this.product)
     this.subscription = this.productService.getCart().subscribe(
       (cart) => {
         this.cartCount = cart.cartCount;
@@ -55,13 +60,13 @@ export class ProductDetailsComponent implements OnInit {
 
       this.productId = Number (params.get('id'));
     })
-    console.log(this.productId)
     this.productService.getSingleProduct(this.productId).subscribe( 
       (resp: Product) => this.Product = resp,
       (err) => console.log(err),
       () => console.log("Product retrieved successfully")
       )
   };
+  
   addToCart(product: Product): void {
 
     let inCart = false;
@@ -95,10 +100,7 @@ export class ProductDetailsComponent implements OnInit {
       }
       this.productService.setCart(cart);
     }
-      
-  }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  
 
+  }
 }

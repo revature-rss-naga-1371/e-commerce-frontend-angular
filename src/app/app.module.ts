@@ -37,7 +37,7 @@ import { ReviewPanelComponent } from './components/review-panel/review-panel.com
     ProductDetailsComponent,
     StarRatingComponent,
     ReviewFormComponent,
-    ReviewComponent
+    ReviewComponent,
     ProductDetailsComponent,
     ReviewPanelComponent
   ],
@@ -46,7 +46,7 @@ import { ReviewPanelComponent } from './components/review-panel/review-panel.com
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

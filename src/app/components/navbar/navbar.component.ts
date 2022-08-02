@@ -53,4 +53,9 @@ export class NavbarComponent implements OnInit{
     this.router.navigate(['update_item'])
   }
 
+  salesView() {
+    this.router.navigate(['update_item']);
+    this.router.navigate(['home'], {state: {isEditing: "true"}});
+  }
+
 }

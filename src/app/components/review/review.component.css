@@ -1,38 +1,63 @@
 
   /* Style the header */
-  .container{
-    padding-top: 10%;
-  }
-   
-  .header {
-      overflow: hidden;
-      background-color: #F26925;
-      padding: 20px 30px;
-      line-height: 30px;
-      color: white;
-    }
-   
-    .header a {
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 18px;
-      border-radius: 4px;
-      background-color: #474C55;
-    }
-   
-    .header div.title {
-      font-size: 30px;
-      font-weight: bold;
-      float: left;
-     
-    }
-   
-    .header a:hover {
-      background-color: #FFFFFF;
-      color: black;
-    }
-   
-    .header div.header-button{
-      float: right;
-    }
   
+  .header-container h2.card-header{
+    background-color: #474C55;
+    color: #fff;
+  }
+/* Button to 'Write a New Review' */
+  .header-button button.btn{
+    display: inline;
+    float: right;
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+    font-weight:normal;
+  }
+  
+  .header-button button:hover {
+    background-color: #fff;
+    color: black;
+  }
+
+/* Submitted Review Form*/
+
+.review-form {
+  border-color: #474C55;
+  border-width: 4px;
+  background-color: #474C55;
+}
+
+.review-form div.card-header{
+  background-color: #fff;
+}
+
+.card-header {
+  font-weight: bold;
+  text-align: center;
+  }
+
+/* Star Rating for Submitted Review */
+.review-form button.rating{
+  color: black;
+  font-weight: bold;
+  font-size: large;
+  background-color: transparent;
+  border: transparent;
+  }
+
+  span.fa{
+    color: #474C55;
+  }
+
+  span.star-fill{
+    color: #F26925;
+  }
+  
+/* Submitted Review Form Description */
+.review-form p.written-review{
+  color: #fff;
+  font-size: large;
+}
+
+

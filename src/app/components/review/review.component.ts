@@ -19,21 +19,23 @@ export class ReviewComponent implements OnInit {
   formData: any;
   reviewForm!: FormGroup;
   
-
+  //Star Rating for Review Form
+  @Input() starId!: number;
+  
 
   constructor(
-    private review : ReviewService
+    private reviewService : ReviewService
   ) { }
 
   ngOnInit(): void {
     console.log(this.productId)
-      this.review.getReviews(this.productId).subscribe({
-      
+      this.reviewService.getReviews(this.productId).subscribe({
         next: (reviews: Array<Review>) => {
           this.reviews = reviews
         }
-      })
+      });
   }
+
   toggle(){
     this.isReviewFormOpen = !this.isReviewFormOpen;
   }
@@ -55,11 +57,11 @@ export class ReviewComponent implements OnInit {
     console.log(this.formData.product)
     if (this.reviewForm.valid) {
       let formModel = this.reviewForm.value
-      this.review.newReview(this.formData)
+      this.reviewService.newReview(this.formData)
       this.reviewForm.reset({
         rating:1,
         description: '',
-        name:'Name'
+        name:''
       })
       this.toggle()
     }

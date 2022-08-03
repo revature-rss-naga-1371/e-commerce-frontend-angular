@@ -27,7 +27,7 @@ export class ProductDetailsComponent implements OnInit {
   subscription!: Subscription;
   // num: number = 0;
   @Input() productId!: number;
- 
+
 
   constructor(
     private route: ActivatedRoute,

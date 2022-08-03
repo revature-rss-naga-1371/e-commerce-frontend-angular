@@ -1,5 +1,25 @@
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" [src]="productInfo.image" alt="Card image cap">
+  <!-- <img class="card-img-top" [src]="productInfo.image" alt="Card image cap"> -->
+  <a *ngIf="isEditing">
+    <div class="container"></div>
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Reg Price (USD)</span>
+      <input type="number" class="form-control" aria-label="Sizing example input" [value]="regPrice | number:'1.2-2'" aria-describedby="inputGroup-sizing-sm" disabled>
+    </div>
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Sale Price (USD)</span>
+      <input type="number" [id]="productInfo.id" class="form-control" aria-label="Sizing example input" [value]="salePrice | number:'1.2-2'" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <span class="input-group-text" id="inputGroup-sizing-sm">
+    <button class="btn btn-outline-success" (click)="submitItemUpdate()">Save Changes</button>
+  </span>
+  </a>
+  <div class="parent">
+  <img class="productImage" [src]="productInfo.image" alt="Card image cap">
+  <a *ngIf="productInfo.price > 10000">
+    <img class="saleImage" [src]="'assets/images/sale.png'" alt="Card image cap">
+  </a>
+  </div>
   <div class="card-body">
     <h5 class="card-title">{{productInfo.name}}</h5>
     <p class="card-text">{{productInfo.description}}</p>
@@ -37,5 +57,5 @@
         <button class="btn btn-outline-success" (click)="addToCart(productInfo)">Add to Cart</button>
     </div> -->
   <div class="card-body text-center">
-    <button class="btn btn-outline-success" class="btn btn-dark" [routerLink]="['/product_details', productInfo.id]" (click)="addToCart(productInfo)">View Product Details</button>
+    <button class="btn btn-outline-success" class="btn btn-dark" [routerLink]="['/product_details', productInfo.id]">View Product Details</button>
   </div>

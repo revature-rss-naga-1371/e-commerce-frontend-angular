@@ -58,4 +58,7 @@ export class NavbarComponent implements OnInit{
     this.router.navigate(['home'], {state: {isEditing: "true"}});
   }
 
+  toggleDarkTheme(): void{
+    document.body.classList.toggle('dark-theme');
+  }
 }

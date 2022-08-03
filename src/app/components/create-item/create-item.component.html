@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<div class="display">
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="card">
+            <div class="card-header">Create New Item</div>
+            <div class="card-body">
+                <form [formGroup]="createItem" (submit)="addItem()">
+                    <div>
+                        <label class="form-label">Enter Your Item Name</label>
+                        <input type="name" formControlName="name" class="form-control"/>
+                    </div>
+                    <div>
+                        <label class="form-label">Enter Item Description</label>
+                        <input  formControlName="description" class="form-control"/>
+                    </div>
+                    <div>
+                        <label class="form-label">Enter Item Price</label>
+                        <input formControlName="price" class="form-control"/>
+                    </div>
+                    <div>
+                        <label class="form-label">Enter Item Quantity</label>
+                        <input formControlName="reNewPW" class="form-control"/>
+                    </div>
+                    <div>
+                        <label class="form-label">Enter Image URL</label>
+                        <input formControlName="image" class="form-control"/>
+                    </div>
+                    
+                    <button id="updateitem" class="btn btn-primary">Submit New Item</button>
+                <br/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

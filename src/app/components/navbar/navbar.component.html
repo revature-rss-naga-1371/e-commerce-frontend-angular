@@ -1,6 +1,6 @@
-<nav class="navbar navbar-light bg-light">
+<nav id="n1" class="navbar navbar-light bg-light">
     <h4>
-        <img src="../../../assets/images/favicon.png" width="8%" height="8%" alt="Revature">
+        <img src="../../../assets/images/favicon.png" width="8%" height="8%" alt="Revature" [routerLink]="['/home']">
         Revature Swag Shop
     </h4>
     <form class="form-inline">
@@ -9,5 +9,9 @@
             <span class="badge badge-info">{{cartCount}}</span>
         </button>
         <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
+        <button id="pwreset" class="btn btn-outline-danger my-2 my-sm-0" [routerLink]="['/reset_password']">Reset PW</button>
+        <button class="btn btn-outline-danger my-2 my-sm-0 item" [routerLink]="['/create_item']">Create Item</button>
+        <button class="btn btn-outline-danger my-2 my-sm-0 item" [routerLink]="['/update_item']">Update Item</button>
+
     </form>
 </nav>

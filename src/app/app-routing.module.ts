@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "home", component: DisplayProductsComponent },
+  { path: "home", component: DisplayProductsComponent, runGuardsAndResolvers: 'always' },
   { path: "cart", component: CartComponent },
   { path: "checkout", component: CheckoutComponent },
   { path: "reset_password", component: ResetPasswordComponent },
@@ -24,7 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

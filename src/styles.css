@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    --text-color: black;
+    --bkg-color: #F26925;
+    --btn-txt-color: white;
+    --btn-bg-color: #FCB414;
+    --nav-bg-color: #474C55;
+    --h4-color: #F26925;
+    --h4-text-color: white;
+    --footer-bg-color: #474C55;;
+  }
+  body.dark-theme {
+    --text-color: rgb(218, 98, 0);
+    --bkg-color: #252222;
+    --btn-txt-color: rgb(218, 98, 0);
+    --btn-bg-color: #72A4C2;;
+    --h4-color: #FCB414;
+    --h4-text-color: white;
+    --nav-bg-color:#72A4C2;
+    --footer-bg-color: #72A4C2;
+  }
+  
+  body {
+    background: var(--bkg-color);
+  }
+  
+  nav{
+    background: var(--nav-bg-color);
+  }
+
+  h1,p {
+    color: var(--text-color);
+  }
+  button {
+    color: var(--btn-txt-color);
+    background-color: var(--btn-bg-color);
+    --text-coler: var(--btn-txt-color);
+  }
+  h4{
+    color: var(--h4-color);
+    --text-color: var(--h4-color);
+  }
+  footer{
+    background-color: var(--footer-bg-color);
+  }
+.people{
+    color: green;
+}

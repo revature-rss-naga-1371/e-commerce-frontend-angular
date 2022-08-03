@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
+import { AbstractControl, FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,10 @@ export class AuthService {
 
   authUrl: string = `${environment.baseUrl}/auth`;
   loggedIn: boolean = false;
+
+  isDark = false
+
+  _isDark$ = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) { }
 
@@ -26,4 +32,14 @@ export class AuthService {
     const payload = {firstName: firstName, lastName: lastName, email: email, password: password};
     return this.http.post<any>(`${this.authUrl}/register`, payload, {headers: environment.headers});
   }
+
+  getUsers(): Observable<any> {
+    return this.http.get<any>(`${this.authUrl}/users`);
+  }
+
+  changeIsDark(): void {
+    this.isDark = !this.isDark
+    this._isDark$.next(this.isDark)
+  }
+
 }

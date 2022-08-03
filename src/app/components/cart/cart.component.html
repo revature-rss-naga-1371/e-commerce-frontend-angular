@@ -5,18 +5,22 @@
         <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Quantity</th>
+        <th scope="col">Increase/Decrease Quantity</th>
         <th scope="col">Description</th>
       </tr>
     </thead>
     <tbody id="cart-table-body">
-        <tr *ngFor="let product of products;">
+        <tr *ngFor="let product of products; let i = index">
             <td>{{product.product.id}}</td>
             <td>{{product.product.name}}</td>
             <td>{{product.quantity}}</td>
+            <button class="btn btn-success" (click)="changeQuantity(i, 1)">+</button>
+            <button class="btn btn-danger" (click)="changeQuantity(i ,-1)">-</button>
             <td>{{product.product.description}}</td>
+            <button class="btn btn-danger" (click)="deleteFromCart(i)">Remove From Cart</button>
         </tr>
     </tbody>
 </table>
 <button class="btn btn-danger" [routerLink]="['/home']">Back</button>
 <button class="btn btn-warning" (click)="emptyCart()">Empty Cart</button>
-<button class="btn btn-primary" [routerLink]="['/checkout']">Proceed to Checkout (${{totalPrice}})</button>
+<button [disabled]="isEmpty" class="btn btn-primary" [routerLink]="['/checkout']">Proceed to Checkout ({{totalPrice | currency}})</button>

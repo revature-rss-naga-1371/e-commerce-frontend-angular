@@ -43,11 +43,15 @@ export class ProductService {
   }
 
   public getSingleProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(environment.baseUrl+id);
+    return this.http.get<Product>(environment.baseUrl+this.productUrl+"/"+id, {headers: environment.headers, withCredentials: environment.withCredentials});
   }
 
   public purchase(products: {id:number, quantity:number}[]): Observable<any> {
     const payload = JSON.stringify(products);
     return this.http.patch<any>(environment.baseUrl+this.productUrl, payload, {headers: environment.headers, withCredentials: environment.withCredentials})
   }
+  // addToCart(product: Product){ 
+  //   this._cart.next
+
+  // }
 }

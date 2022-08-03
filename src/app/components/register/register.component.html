@@ -2,21 +2,43 @@
 <form id="register-form" [formGroup]="registerForm">
     <div class="form-group">
         <label for="inputFirstName">First Name</label>
-        <input type="text" class="form-control" formControlName="fname" id="inputFirstName" placeholder="Enter First Name">
+        <input type="text" class="form-control" formControlName="fname" id="inputFirstName" placeholder="Enter First Name" [ngClass]="{'is-invalid':registerForm.controls['fname'].touched && registerForm.controls['fname'].errors?.required}">
+        <div>
+          <small *ngIf="registerForm.controls['fname'].touched && registerForm.controls['fname'].errors?.required" class="text-danger">First Name Is Required</small>
+        </div>
       </div>
     <div class="form-group">
         <label for="inputLastName">Last Name</label>
-        <input type="text" class="form-control" formControlName="lname" id="inputLastName" placeholder="Enter Last Name">
+        <input type="text" class="form-control" formControlName="lname" id="inputLastName" placeholder="Enter Last Name" [ngClass]="{'is-invalid':registerForm.controls['lname'].touched && registerForm.controls['lname'].errors?.required}">
+        <div>
+          <small *ngIf="registerForm.controls['lname'].touched && registerForm.controls['lname'].errors?.required" class="text-danger">Last Name Is required</small>
+        </div>
     </div>
     <div class="form-group">
       <label for="inputEmail">Email address</label>
-      <input type="email" class="form-control" formControlName="email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter Email">
+      <input type="email" class="form-control" formControlName="email" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter Email" [ngClass]="{'is-invalid':registerForm.controls['email'].touched && (registerForm.controls['email'].errors?.required || registerForm.controls['email'].errors?.email)}">
       <small id="emailHelp" class="form-text text-muted">Ensure you enter the correct email</small>
+      <div>
+        <small *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].errors?.required" class="text-danger">Email is required</small>
+      </div>
+      <div>
+        <small *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].errors?.email" class="text-danger">Invalid Email Format</small>
+      </div>
+      <div>
+        <small *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].errors?.usernameTaken" class="text-danger">Email is taken</small>
+      </div>
     </div>
     <div class="form-group">
       <label for="inputPassword">Password</label>
-      <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Enter Password">
+      <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Enter Password" [ngClass]="{'is-invalid':registerForm.controls['password'].touched && (registerForm.controls['password'].errors?.required || registerForm.controls['password'].errors?.minlength)}">
+      <div>
+        <small *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].errors?.required" class="text-danger">Password is required</small>
+      </div>
+      <div>
+        <small *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].errors?.minlength" class="text-danger">Password Must Be At Least 6 Characters</small>
+      </div>
     </div>
-    <button class="btn btn-primary" (click)="onSubmit()">Register</button>
+    {{registerForm.status}}
+    <button class="btn btn-primary" [disabled]="registerForm.invalid" (click)="onSubmit()">Register</button>
 </form>
 

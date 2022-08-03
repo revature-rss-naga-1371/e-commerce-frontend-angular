@@ -1,0 +1,22 @@
+.red{
+    color: yellow;
+}
+
+.card {
+    background: transparent;
+    border: transparent;
+}
+
+span{
+    margin-right: 5px;
+    font-weight: bold;
+    color: #F26925;
+}
+
+span.text-dark {
+    color:#474C55;
+}
+
+span.ml-2 {
+    font-size: large;
+}

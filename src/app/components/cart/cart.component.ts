@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import { EDEADLK } from 'constants';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -50,7 +51,13 @@ export class CartComponent implements OnInit {
     let price = 0
     this.products = this.products.filter((element, index) => index !== id)
     this.products.forEach(
-      (el) => price += el.quantity*el.product.price
+      (el) => {
+        if (el.quantity*el.product.price > 10000) {
+          price += (el.quantity*el.product.price / 1000000);
+        } else {
+          price += (el.quantity*el.product.price % 10000);
+        }
+      }
     )
     let cart = {
       cartCount: this.products.length,
@@ -85,7 +92,13 @@ export class CartComponent implements OnInit {
       )
       let price = 0
       this.products.forEach(
-        (el) => price += el.quantity*el.product.price
+        (el) => {
+          if (el.quantity*el.product.price > 10000) {
+            price += (el.quantity*el.product.price / 1000000);
+          } else {
+            price += (el.quantity*el.product.price % 10000);
+          }
+        }
       )
       let cart = {
         cartCount: count,

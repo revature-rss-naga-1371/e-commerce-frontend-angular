@@ -75,10 +75,16 @@ export class ProductDetailsComponent implements OnInit {
       (element) => {
         if(element.product == product){
           ++element.quantity;
+          var extractedPrice = 0;
+          if (product.price > 10000) {
+            extractedPrice = (product.price / 1000000);
+          } else {
+            extractedPrice = (product.price % 10000);
+          }
           let cart = {
             cartCount: this.cartCount + 1,
             products: this.products,
-            totalPrice: this.totalPrice + product.price
+            totalPrice: (this.totalPrice + extractedPrice),
           };
           this.productService.setCart(cart);
           inCart=true;
@@ -93,10 +99,16 @@ export class ProductDetailsComponent implements OnInit {
         quantity: 1
       };
       this.products.push(newProduct);
+      var extractedPrice = 0;
+      if (product.price > 10000) {
+        extractedPrice = (product.price / 1000000);
+      } else {
+        extractedPrice = (product.price % 10000);
+      }
       let cart = {
         cartCount: this.cartCount + 1,
         products: this.products,
-        totalPrice: this.totalPrice + product.price
+        totalPrice: (this.totalPrice + extractedPrice)
       }
       this.productService.setCart(cart);
     }

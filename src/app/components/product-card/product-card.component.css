@@ -7,7 +7,7 @@
   
   }
   
-  img
+  .productImage
   {
     justify-content: center;
     height: auto;
@@ -15,6 +15,15 @@
     max-height: 200px;
     max-width: 307px;
     left:0;
+  }
+  .saleImage
+  {
+    position: absolute;
+    top: 25px;
+    left: 150px;
+    height: 75px;
+    width: auto;
+    /* border: 1px solid #000000; */
   }
   
   div {
@@ -25,4 +34,8 @@
   .card:hover{
     box-shadow: 0 5px 10px rgba(0,0,0,.2);
     transform: translate3d(0,-10px,0);
+  }
+
+  .container {
+    background: rgba(39, 39, 39, 0.5);
   }

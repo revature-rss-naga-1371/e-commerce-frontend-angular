@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { ReviewService } from 'src/app/services/review.service';
 import { Review } from 'src/app/models/review';
 
@@ -11,13 +11,19 @@ import { Review } from 'src/app/models/review';
 export class ReviewFormComponent implements OnInit {
   @Input() productId!: number;
   @Output() save = new EventEmitter();
-  isReviewFormOpen = false;
+  @Output() cancel = new EventEmitter();
+
+
   reviewForm!: FormGroup;
   starRating: number = 0;
   num: number = 0;
   productReview: Review[]= [];
   formData: any;
 
+  //Star Review
+  stars = [1,2,3,4,5];
+  ratingProduct = 1;
+  hoverState = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -26,10 +32,10 @@ export class ReviewFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.reviewForm = this.fb.group({
-      rating: [[],[Validators.required, Validators.max(5),Validators.min(1)]],
-      name: ['',[Validators.required, Validators.maxLength(50)]],
-      description:['',[Validators.required, Validators.maxLength(250)]],
-    })
+      // rating: [[],[Validators.required]],
+      name: ['',[Validators.required]],
+      description:['',[Validators.required]],
+    });
     
     this.review.getReviews(this.productId).subscribe(
       (subreview) => {
@@ -42,30 +48,41 @@ export class ReviewFormComponent implements OnInit {
       this.starRating = Math.round(this.starRating)}},
       (err) => console.log(err),
       () => console.log("complete")
-      )
-
-}
-    
-
-toggle(){
-  this.isReviewFormOpen = !this.isReviewFormOpen;
-}
-
-
-handleSubmit() {
-  console.log(this.productId)
-  this.formData = this.reviewForm.value
-  this.formData.productId = this.productId
-  console.log(this.formData)
-  console.log(this.formData.product)
-  if (this.reviewForm.valid) {
-    this.review.newReview(this.formData)
-    this.reviewForm.reset({
-      rating:1,
-      description: '',
-      name:'Name'
-    })
-    this.toggle()
+    )
   }
-}
+
+  onStarEnter(starId: number){
+    this.hoverState = starId;
+  }
+
+  onStarLeave(){
+    this.hoverState = 0;
+  }
+
+  onStarClicked(starId: number){
+    this.ratingProduct = starId;
+    console.log(starId)
+  }
+
+  toggle(){
+    this.cancel.emit()
+  }
+
+  handleSubmit() {
+    console.log(this.productId)
+    this.formData = this.reviewForm.value
+    this.formData.productId = this.productId
+    console.log(this.formData)
+    console.log(this.formData.product)
+    if (this.reviewForm.valid) {
+      this.formData.rating = this.ratingProduct
+      this.review.newReview(this.formData)
+      this.reviewForm.reset({
+        rating:1,
+        description: '',
+        name:''
+      });
+      this.toggle()
+    }
+  }
 }

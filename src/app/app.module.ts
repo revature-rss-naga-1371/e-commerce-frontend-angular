@@ -20,6 +20,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { ReviewComponent } from './components/review/review.component';
 import { ReviewPanelComponent } from './components/review-panel/review-panel.component';
+import { StarsComponent } from './components/stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ReviewPanelComponent } from './components/review-panel/review-panel.com
     ReviewFormComponent,
     ReviewComponent,
     ProductDetailsComponent,
-    ReviewPanelComponent
+    ReviewPanelComponent,
+    StarsComponent
   ],
   imports: [
     BrowserModule,

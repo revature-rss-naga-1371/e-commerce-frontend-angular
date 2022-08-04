@@ -1,0 +1,56 @@
+<!--- Customer Reviews for Product -------->
+
+<div class="container pt-5 form-container">
+    <app-review-form 
+        [productId]="productId"
+        *ngIf="isReviewFormOpen"
+        (cancel)="toggle()">
+    </app-review-form>
+</div>
+
+<div class="container header-container py-5">
+    <h2 class="card-header">Customer Reviews
+        <span class="header-button">
+            <button class="btn btn-md" (click)="toggle()" title="Write a new review">Write a New Review</button>
+        </span>
+    </h2>
+    <div>
+        <!-- <div class="container shadow-lg p-2 form-container">
+            <app-review-form 
+                [productId]="productId"
+                *ngIf="isReviewFormOpen"
+                (cancel)="toggle()">
+            </app-review-form> -->
+        <div class="card review-form m-3" *ngFor="let review of reviews">
+            <div class="card-header text-center">
+            <h4 class="headline">{{review.name}}</h4>
+                <div class="text-center">
+                    <button class="rating" row="1" title="{{review.rating}} Star Rating"> 
+                        <span class="fa fa-star mx-1" value="1"
+                            [ngClass]="{'star-fill': review.rating >= 1}">
+                        </span>
+                        <span class="fa fa-star mx-1" value="2"
+                            [ngClass]="{'star-fill': review.rating >= 2}">
+                        </span>
+                        <span class="fa fa-star mx-1" value="3"
+                            [ngClass]="{'star-fill': review.rating >= 3}">
+                        </span>
+                        <span class="fa fa-star mx-1" value="4"
+                            [ngClass]="{'star-fill': review.rating >= 4}">
+                        </span>
+                        <span class="fa fa-star mx-1" value="5"
+                            [ngClass]="{'star-fill': review.rating >= 5}">
+                        </span>
+                    </button> 
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="written-review">{{review.description}}</p>
+            </div>    
+        </div>
+        <!-- </div> -->
+    </div>
+</div>
+
+
+

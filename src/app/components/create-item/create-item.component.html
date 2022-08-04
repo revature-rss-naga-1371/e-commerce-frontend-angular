@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<div class="display">
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="card" style="width: 25%">
+            <div class="card-header">Create New Item</div>
+            <div class="card-body">
+                <form [formGroup]="createItem" (submit)="addItem()">
+                    <div>
+                        <label class="form-label">Enter Your Item Name</label>
+                        <input type="name" formControlName="name" class="form-control" [ngClass]="{'is-invalid':createItem.controls['name'].touched && createItem.controls['name'].errors?.required}"/>
+                        <div *ngIf="createItem.controls['name'].touched && createItem.controls['name'].errors?.required" class="text-danger">Name is Required</div>
+                    </div>
+                    <div>
+                        <label class="form-label">Enter Item Description</label>
+                        <input formControlName="description" class="form-control"/>
+                    </div>
+                    <div>
+                        <label class="form-label">Enter Item Price</label>
+                        <input min="0" pattern="^\d*(\.\d{2})" formControlName="price" class="form-control" [ngClass]="{'is-invalid':createItem.controls['price'].touched && (createItem.controls['price'].errors?.required || createItem.controls['price'].errors?.pattern)}"/>
+                        <span *ngIf="createItem.controls['price'].touched && createItem.controls['price'].errors?.required" class="text-danger">Price is Required</span>
+                        <!-- <div *ngIf="createItem.controls['price'].errors?.min && createItem.controls['price'].touched" class="text-danger">Number Must Be Greater Than 0</div> -->
+                        <div *ngIf="createItem.controls['price'].errors?.pattern && createItem.controls['price'].touched" class="text-danger">Price Must be in Valid Form (ex. 4.99)</div>
+                    </div>
+                    <div>
+                        <label class="form-label">Enter Item Quantity</label>
+                        <input type="number" formControlName="quantity" class="form-control" [ngClass]="{'is-invalid':createItem.controls['quantity'].touched && (createItem.controls['quantity'].errors?.required || createItem.controls['quantity'].errors?.min)}"/>
+                        <div *ngIf="createItem.controls['quantity'].touched && createItem.controls['quantity'].errors?.required" class="text-danger">Quantity is Required</div>
+                        <div *ngIf="createItem.controls['quantity'].errors?.min && createItem.controls['quantity'].touched" class="text-danger">Quantity Must Be Greater Than 0</div>
+                    </div>
+                    <div>
+                        <label class="form-label">Enter Image URL</label>
+                        <input formControlName="image" class="form-control" [ngClass]="{'is-invalid':createItem.controls['image'].touched && createItem.controls['image'].errors?.required}"/>
+                        <div *ngIf="createItem.controls['image'].touched && createItem.controls['image'].errors?.required" class="text-danger">Image URL is Required</div>
+                    </div>
+                    <button id="updateitem" [disabled]="createItem.invalid" class="btn btn-primary">Submit New Item</button>
+                <br/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

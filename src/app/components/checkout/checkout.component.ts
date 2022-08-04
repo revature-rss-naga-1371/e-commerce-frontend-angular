@@ -38,6 +38,7 @@ export class CheckoutComponent implements OnInit {
     this.productService.getCart().subscribe(
       (cart) => {
         this.products = cart.products;
+        console.log(this.products)
         this.products.forEach(
           (element) => this.cartProducts.push(element.product)
         );

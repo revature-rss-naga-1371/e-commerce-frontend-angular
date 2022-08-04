@@ -1,13 +1,39 @@
-<nav class="navbar navbar-light bg-light">
+<!-- <div [ngStyle]="{'background-color': isDark ? 'red' : 'black'}">
+    <nav id="n1" class=""> {{isDark}}
+        <h4>
+            <img src="../../../assets/images/favicon.png" width="8%" height="8%" alt="Revature" [routerLink]="['/home']">
+            Revature Swag Shop
+        </h4>
+        <form class="form-inline">
+            <button class="btn btn-light" [routerLink]="['/cart']">
+                Cart
+                <span class="badge badge-info">{{cartCount}}</span>
+            </button>
+            <button (click)="changeTheme()">Turn Dark!</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
+            <button id="pwreset" class="btn btn-outline-danger my-2 my-sm-0" (click)="resetPassword()">Reset PW</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0 item" (click)="createItem()">Create Item</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0 item" (click)="updateItem()">Update Item</button>
+    
+        </form>
+    </nav>
+</div> -->
+<nav id="n1" class="navbar">
     <h4>
-        <img src="../../../assets/images/favicon.png" width="8%" height="8%" alt="Revature">
+        <img src="../../../assets/images/favicon.png" width="8%" height="8%" alt="Revature" [routerLink]="['/home']">
         Revature Swag Shop
     </h4>
     <form class="form-inline">
+            <button class ="btn btn-outline-dark my-2 my-sm-0 mx-2" (click)="toggleDarkTheme()">Toggle dark</button>
         <button class="btn btn-light" [routerLink]="['/cart']">
             Cart
             <span class="badge badge-info">{{cartCount}}</span>
         </button>
         <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout();">Logout</button>
+        <button id="pwreset" class="btn my-2 my-sm-0" (click)="resetPassword()">Reset PW</button>
+        <button class="btn my-2 my-sm-0 item" (click)="createItem()">Create Item</button>
+        <button class="btn my-2 my-sm-0 item" (click)="updateItem()">Update Item</button>
+        <button class="btn my-2 my-sm-0 item" (click)="salesView()">Sales View</button>
+
     </form>
 </nav>

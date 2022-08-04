@@ -12,6 +12,15 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { CreateItemComponent } from './components/create-item/create-item.component';
+import { UpdateItemComponent } from './components/update-item/update-item.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ReviewFormComponent } from './components/review-form/review-form.component';
+import { ReviewComponent } from './components/review/review.component';
+import { ReviewPanelComponent } from './components/review-panel/review-panel.component';
+import { StarsComponent } from './components/stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +31,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductCardComponent,
     CartComponent,
     CheckoutComponent,
-    DisplayProductsComponent
+    DisplayProductsComponent,
+    ResetPasswordComponent,
+    CreateItemComponent,
+    UpdateItemComponent,
+    ProductDetailsComponent,
+    StarRatingComponent,
+    ReviewFormComponent,
+    ReviewComponent,
+    ProductDetailsComponent,
+    ReviewPanelComponent,
+    StarsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import { EDEADLK } from 'constants';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -17,6 +18,8 @@ export class CartComponent implements OnInit {
   totalPrice!: number;
   cartProducts: Product[] = [];
 
+  isEmpty = true
+
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
@@ -27,6 +30,7 @@ export class CartComponent implements OnInit {
           (element) => this.cartProducts.push(element.product)
         );
         this.totalPrice = cart.totalPrice;
+        this.totalPrice > 0 ? this.isEmpty = false : this.isEmpty = true
       }
     );
   }
@@ -38,7 +42,76 @@ export class CartComponent implements OnInit {
       totalPrice: 0.00
     };
     this.productService.setCart(cart);
+    this.isEmpty = true
     this.router.navigate(['/home']);
   }
+
+  deleteFromCart(id: number): void {
+    console.log(id)
+    let price = 0
+    this.products = this.products.filter((element, index) => index !== id)
+    this.products.forEach(
+      (el) => {
+        if (el.quantity*el.product.price > 10000) {
+          price += (el.quantity*el.product.price / 1000000);
+        } else {
+          price += (el.quantity*el.product.price % 10000);
+        }
+      }
+    )
+    let cart = {
+      cartCount: this.products.length,
+      products: [] = this.products,
+      totalPrice: price
+    }
+    console.log("new cart is " + cart)
+    this.productService.setCart(cart)
+  }
+
+  changeQuantity(id: number, change: number) {
+
+    for (var i = 0; i < this.products.length; i++) {
+
+      if (this.products[i] == this.products[id]) {
+        if (change === 1) {
+
+          this.products[i].quantity++;
+        }
+        else {
+          if (this.products[i].quantity !== 0) {
+            this.products[i].quantity--;
+            if(this.products[i].quantity==0)
+              this.deleteFromCart(i)
+          }
+        }
+        
+      }
+      let count = 0
+      this.products.forEach(
+        (el) => count += el.quantity
+      )
+      let price = 0
+      this.products.forEach(
+        (el) => {
+          if (el.quantity*el.product.price > 10000) {
+            price += (el.quantity*el.product.price / 1000000);
+          } else {
+            price += (el.quantity*el.product.price % 10000);
+          }
+        }
+      )
+      let cart = {
+        cartCount: count,
+        products: [] = this.products,
+        totalPrice: price
+      }
+      console.log("new cart is " + cart)
+      this.productService.setCart(cart)
+
+      
+    }
+
+  }
+  
 
 }

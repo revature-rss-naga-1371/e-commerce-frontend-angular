@@ -1,0 +1,40 @@
+/* Create a New Product Review */
+.card {
+  color: black;
+  font-weight: bold;
+  border: transparent;
+}
+
+.card h4.card-header{
+  text-align: center;
+  font-weight: bold;
+  background-color: #F26925;
+  color: #fff;
+}
+
+.card div.card-footer{
+  background-color: #F26925;
+  padding-bottom: 50px;
+}
+
+/* New Review Form Buttons */
+.card-footer button.btn-submit {
+  float: right;
+  border-color: #fff;
+  background-color: transparent;
+  color: #fff;
+}
+.card-footer button.btn-submit:hover{
+  background-color: #474C55;
+  color: #fff;
+}
+.card-footer button.btn-cancel {
+  float: right;
+  border-color: #fff;
+  background-color: transparent;
+  color: #fff;
+}
+.card-footer button.btn-cancel:hover{
+  background-color: #474C55;
+  color: #fff;
+}
